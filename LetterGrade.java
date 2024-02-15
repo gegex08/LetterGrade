@@ -13,43 +13,36 @@ public class LetterGrade {
         System.out.print("Enter Grade: ");
         Scanner input = new Scanner(System.in);
         int studentGrade = input.nextInt();
-        int total; // sum of grades entered by user
-        int average; // average of grades
+        int total = studentGrade ; // sum of grades entered by user
         int gradeCounter = 1; // number of the grade to be entered next
         
-        total = 0; // initialize total
-        total = total + studentGrade; // add grade to total
-        studentGrade = studentGrade + 1; // increment counter by 1
-        
-        average = total / 10; // integer division yields integer result
-        
-        while ( gradeCounter <= 10 )//loop
-        {
-            
+   
          while ((studentGrade >= 0) && (studentGrade <= 100))// condition
          {
             if ((studentGrade >= 90) && (studentGrade <= 100)){
             System.out.println("A");
             }
-            else if ((studentGrade >= 80) && (studentGrade <= 90)){
+            else if ((studentGrade >= 80) && (studentGrade < 90)){
             System.out.println("B");
             }
-            else if ((studentGrade >= 70) && (studentGrade <= 80)){
+            else if ((studentGrade >= 70) && (studentGrade < 80)){
             System.out.println("C");
             }
-            else if ((studentGrade >= 60) && (studentGrade <= 70)){
+            else if ((studentGrade >= 60) && (studentGrade < 70)){
             System.out.println("D");
             }
             else{
             System.out.println("F");
             }
             
-            System.out.print("Enter Grade: ");
+            System.out.print("Enter Grade: ");// Needs to ask user again at each loop
             studentGrade = input.nextInt();
-            studentGrade++;
-            average = total / 10; // integer division yields integer result
-            System.out.println(average);
+            total += studentGrade; //each time that this function is called it will add the next grade total
+            gradeCounter++;//increment the grade count 
+         }
+            int average = total / gradeCounter; // integer division yields integer result
+            System.out.println("The average is: " + average);
          }
        }
-    }
-}
+    
+
